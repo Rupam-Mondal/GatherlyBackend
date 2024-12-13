@@ -21,12 +21,6 @@ export async function SignupController(req , res){
 
 export async function signinController(req , res){
     try {
-        if(!req.body.username || !res.body.email || !req.body.password){
-            return res.json({
-                success: false,
-                message: "Signin failed"
-            })
-        }
         const response = await signinService(req.body);
         if(!response){
             return res.json({

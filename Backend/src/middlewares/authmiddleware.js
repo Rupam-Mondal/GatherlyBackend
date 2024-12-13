@@ -18,7 +18,7 @@ export async function isAuthenticate(req , res , next){
                 message:"Unauthenticate user"
             })
         }
-        req.user = response
+        req.user = response;
         next();
     } catch (error) {
         res.json({

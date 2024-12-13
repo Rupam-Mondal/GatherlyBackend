@@ -2,6 +2,16 @@ import Workspace from "../schema/workspace.js";
 import { createChannel } from "./channelRepository.js";
 import { finduserByid } from "./userRepository.js";
 
+export async function createWorkspace(workspaceObject){
+    try {
+        const response = await Workspace.create(workspaceObject);
+        return response;
+    } catch (error) {
+        console.log("Something went wrong");
+        return null;
+    }
+}
+
 export async function findworkspaceByid(id){
     try {
         const workspace = await Workspace.findById(id).populate('channels');
@@ -41,7 +51,9 @@ export async function addmemberToWorkspace(workspaceId , userId , role){
         if (!user) {
             return null;
         }
-        if (workspace.members.includes(userId)) {
+        const isMemberExists = workspace.members.some(member => member._id === userId);
+        if (isMemberExists) {
+            console.log("User already a member");
             return null;
         }
         workspace.members.push({ userId, role });
