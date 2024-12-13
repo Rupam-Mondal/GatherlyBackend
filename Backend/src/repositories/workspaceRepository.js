@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Workspace from "../schema/workspace.js";
 import { createChannel } from "./channelRepository.js";
 import { finduserByid } from "./userRepository.js";
@@ -56,7 +57,8 @@ export async function addmemberToWorkspace(workspaceId , userId , role){
             console.log("User already a member");
             return null;
         }
-        workspace.members.push({ userId, role });
+        console.log(userId);
+        workspace.members.push({ member:userId, role:role });
         await workspace.save();
         return workspace;
     } catch (error) {
@@ -88,6 +90,19 @@ export async function addchannelToworkspace(workspaceId , channelName){
         return workspace;
     } catch (error) {
         console.log("Workspace not found");
+        return null;
+    }
+}
+
+export async function getAllworkspaceForUser(userId){
+    try {
+        const response = await Workspace.find({
+            "members.member": userId
+        });
+        console.log(response);
+        return response;
+    } catch (error) {
+        console.log("Something went wronmg");
         return null;
     }
 }
