@@ -18,6 +18,7 @@ export async function signupService(userObject){
 export async function signinService(userObject){
     try {
         const user = await getUserByUsername(userObject.username);
+        
         if(!user){
             return null;
         }
@@ -28,9 +29,11 @@ export async function signinService(userObject){
             }
         }
         const Token = createToken({email : user.email , username : user.username , id:user._id});
+        return Token;
 
 
     } catch (error) {
-        
+        console.log(error);
+        return null;
     }
 }
