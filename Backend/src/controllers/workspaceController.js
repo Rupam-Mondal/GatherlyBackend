@@ -1,4 +1,4 @@
-import { addmemberToWorkspaceService, createWorkspaceService, getAllworkspaceService } from "../service/workspaceService.js";
+import { addChannelToworkspaceService, addmemberToWorkspaceService, createWorkspaceService, getAllworkspaceService } from "../service/workspaceService.js";
 
 export async function createWorkspaceController(req , res){
     try {
@@ -42,6 +42,24 @@ export async function addMemberToworkspaceController(req , res){
             success: true,
             message: "Member added successfully",
             data: response
+        })
+    } catch (error) {
+        return res.json({
+            success: false,
+            message: "Something went wrong"
+        })
+    }
+}
+export async function addChannelToworkspaceController(req , res){
+    try {
+        const response = await addChannelToworkspaceService(req.body.workspaceId, req.body.channelName);
+        if(!response){
+            throw null;
+        }
+        return res.json({
+            success:true,
+            message:"Channel added successfully",
+            data:response
         })
     } catch (error) {
         return res.json({

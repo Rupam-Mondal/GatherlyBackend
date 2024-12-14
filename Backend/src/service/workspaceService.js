@@ -47,3 +47,16 @@ export async function addmemberToWorkspaceService(userId , workspaceId, joincode
         return null;
     }
 }
+
+export async function addChannelToworkspaceService(workspaceId , channelName){
+    try {
+        const response = await addchannelToworkspace(workspaceId, channelName);
+        if(!response){
+            throw null;
+        }
+        return response;
+    } catch (error) {
+        console.log("Something went wrong");
+        return null;
+    }
+}
