@@ -52,11 +52,11 @@ export async function addmemberToWorkspace(workspaceId , userId , role){
         if (!user) {
             return null;
         }
-        const isMemberExists = workspace.members.some(member => member._id === userId);
-        if (isMemberExists) {
-            console.log("User already a member");
-            return null;
-        }
+        workspace.members.map((v , i) => {
+            if(v.member == userId){
+                throw null;
+            }
+        })
         console.log(userId);
         workspace.members.push({ member:userId, role:role });
         await workspace.save();

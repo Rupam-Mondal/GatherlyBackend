@@ -1,5 +1,6 @@
 import {v4 as uuidv4} from 'uuid';
-import { addchannelToworkspace, addmemberToWorkspace, createWorkspace, getAllworkspaceForUser } from '../repositories/workspaceRepository.js';
+import { addchannelToworkspace, addmemberToWorkspace, createWorkspace, findworkspaceByid, getAllworkspaceForUser } from '../repositories/workspaceRepository.js';
+import { finduserByid } from '../repositories/userRepository.js';
 
 export async function createWorkspaceService(workspaceObject){
     try {
@@ -20,6 +21,27 @@ export async function getAllworkspaceService(userId){
         const response = await getAllworkspaceForUser(userId);
         console.log(response);
         return response;
+    } catch (error) {
+        console.log("Something went wrong");
+        return null;
+    }
+}
+export async function addmemberToWorkspaceService(userId , workspaceId, joincode){
+    try {
+        const workspace = await findworkspaceByid(workspaceId);
+        if (!workspace) {
+            return null;
+        }
+        if(workspace.joincode == joincode){
+            const response = await addmemberToWorkspace(workspaceId, userId, 'member');
+            if(!response){
+                throw {
+                    message:"Some issue"
+                }
+            }
+            return response
+        }
+        return null;
     } catch (error) {
         console.log("Something went wrong");
         return null;
