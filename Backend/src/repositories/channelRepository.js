@@ -3,7 +3,7 @@ import Channel from "../schema/channel.js";
 
 export async function getChannelById(ChannelId){
     try {
-        const response = await Channel.findById(ChannelId);
+        const response = await Channel.findById(ChannelId).populate('workspace');
         return response;
     } catch (error) {
         console.log("Something went wrong");
