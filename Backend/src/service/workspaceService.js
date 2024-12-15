@@ -67,3 +67,17 @@ export async function addChannelToworkspaceService(workspaceId , channelName){
         return null;
     }
 }
+export async function isUserPartOfWorkspaceService(userId , workspaceId){
+    try {
+        const workspace = await findworkspaceByid(workspaceId);
+        for(let i = 0 ; i < workspace.members.length ; i++){
+            if(workspace.members[i].member == userId){
+                return true;
+            }
+        }
+        return false;
+    } catch (error) {
+        console.log("Something went wrong");
+        return null;
+    }
+}
