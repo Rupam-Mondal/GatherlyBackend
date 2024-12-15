@@ -1,6 +1,8 @@
 import {v4 as uuidv4} from 'uuid';
 import { addchannelToworkspace, addmemberToWorkspace, createWorkspace, findworkspaceByid, getAllworkspaceForUser } from '../repositories/workspaceRepository.js';
 import { finduserByid } from '../repositories/userRepository.js';
+import { addEmailToQueue } from '../producers/mailQueueProducer.js';
+import { mail_id } from '../config/serverconfig.js';
 
 export async function createWorkspaceService(workspaceObject){
     try {
@@ -26,7 +28,7 @@ export async function getAllworkspaceService(userId){
         return null;
     }
 }
-export async function addmemberToWorkspaceService(userId , workspaceId, joincode){
+export async function addmemberToWorkspaceService(userId , workspaceId, joincode , email){
     try {
         const workspace = await findworkspaceByid(workspaceId);
         if (!workspace) {
@@ -39,6 +41,11 @@ export async function addmemberToWorkspaceService(userId , workspaceId, joincode
                     message:"Some issue"
                 }
             }
+            addEmailToQueue({ 
+                from: mail_id , to: email , 
+                subject:'You have been added to a workspace' , 
+                text:`Welcome to ${workspace.name}`
+            });
             return response
         }
         return null;
