@@ -1,4 +1,5 @@
 import mailQueues from "../queues/mailQueues.js";
+import '../consumers/mailConsumer.js';
 
 
 export async function addEmailToQueue(emailData){
