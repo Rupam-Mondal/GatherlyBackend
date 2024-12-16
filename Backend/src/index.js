@@ -7,6 +7,7 @@ import channelRouter from './routes/channelRouter.js';
 import messageRouter from './routes/messageRouter.js';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import messageSocketController from './controllers/messageSocketController.js';
 
 const app = express();
 const server = createServer(app);
@@ -27,11 +28,7 @@ app.get('/ping', isAuthenticate , (req , res) => {
 });
 
 io.on('connection' , (socket) => {
-    socket.on('message' , (data) => {
-        setInterval(() => {
-            io.emit('new message' , data);
-        } , 3000);
-    })
+    messageSocketController(io , socket);
 })
 
 server.listen(3000 , () => {
