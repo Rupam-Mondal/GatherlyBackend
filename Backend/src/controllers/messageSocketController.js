@@ -8,7 +8,7 @@ export default function messageSocketController(io , socket){
 
 async function createMessageHandler(data , cb , io , socket){
     const msgResponse = await createMessageService(data);
-    io.emit("messageToAll" , data);
+    io.to(data.channelId).emit("messageToAll" , data);
     cb({
         success:true
     })

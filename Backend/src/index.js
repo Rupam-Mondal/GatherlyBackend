@@ -8,6 +8,7 @@ import messageRouter from './routes/messageRouter.js';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import messageSocketController from './controllers/messageSocketController.js';
+import roomJoin from './controllers/channelRoomSocket.js';
 
 const app = express();
 const server = createServer(app);
@@ -29,6 +30,7 @@ app.get('/ping', isAuthenticate , (req , res) => {
 
 io.on('connection' , (socket) => {
     messageSocketController(io , socket);
+    roomJoin(io , socket);
 })
 
 server.listen(3000 , () => {
