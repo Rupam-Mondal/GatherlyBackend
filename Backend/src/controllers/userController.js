@@ -14,7 +14,7 @@ export async function SignupController(req , res){
     } catch (error) {
         return res.json({
             success: false,
-            message: "Something went wrong or user is already exist",
+            message: "Invalid format or user is already exist",
         })
     }
 }
