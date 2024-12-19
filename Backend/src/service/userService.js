@@ -29,7 +29,12 @@ export async function signinService(userObject){
             }
         }
         const Token = createToken({email : user.email , username : user.username , id:user._id});
-        return Token;
+        return {
+            email:user.email,
+            username:user.username,
+            avatar:user.avatar,
+            token:Token
+        };
 
 
     } catch (error) {
