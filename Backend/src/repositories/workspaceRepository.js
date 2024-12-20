@@ -98,7 +98,7 @@ export async function getAllworkspaceForUser(userId){
     try {
         const response = await Workspace.find({
             "members.member": userId
-        });
+        }).populate('channels');
         console.log(response);
         return response;
     } catch (error) {
