@@ -93,7 +93,7 @@ export async function isUserPartOfWorkspace(req , res){
 
 export async function getWorkspaceByIdController(req , res){
     try {
-        const response = await getWorkspaceByIdService(req.body.workspaceId);
+        const response = await getWorkspaceByIdService(req.query.workspaceId);
         if (!response) {
             throw null;
         }
