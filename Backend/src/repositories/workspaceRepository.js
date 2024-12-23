@@ -15,7 +15,7 @@ export async function createWorkspace(workspaceObject){
 
 export async function findworkspaceByid(id){
     try {
-        const workspace = await Workspace.findById(id).populate('channels members');
+        const workspace = await Workspace.findById(id).populate('channels').populate('members.member');
         return workspace;
     } catch (error) {
         console.log("Workspace not found");
