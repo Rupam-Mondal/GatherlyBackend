@@ -1,4 +1,4 @@
-import { addChannelToworkspaceService, addmemberToWorkspaceService, createWorkspaceService, getAllworkspaceService, isUserPartOfWorkspaceService } from "../service/workspaceService.js";
+import { addChannelToworkspaceService, addmemberToWorkspaceService, createWorkspaceService, getAllworkspaceService, getWorkspaceByIdService, isUserPartOfWorkspaceService } from "../service/workspaceService.js";
 
 export async function createWorkspaceController(req , res){
     try {
@@ -83,6 +83,25 @@ export async function isUserPartOfWorkspace(req , res){
                 message: "User is not present in the workspace"
             })
         }
+    } catch (error) {
+        return res.json({
+            success: false,
+            message: "Something went wrong"
+        })
+    }
+}
+
+export async function getWorkspaceByIdController(req , res){
+    try {
+        const response = await getWorkspaceByIdService(req.body.workspaceId);
+        if (!response) {
+            throw null;
+        }
+        return res.json({
+            success: true,
+            message: "workspace fecthed successfully",
+            data: response
+        })
     } catch (error) {
         return res.json({
             success: false,

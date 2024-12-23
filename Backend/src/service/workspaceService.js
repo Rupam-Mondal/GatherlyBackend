@@ -81,3 +81,14 @@ export async function isUserPartOfWorkspaceService(userId , workspaceId){
         return null;
     }
 }
+
+export async function getWorkspaceByIdService(workspaceId){
+    try {
+        const response = await findworkspaceByid(workspaceId);
+        console.log(response)
+        return response;
+    } catch (error) {
+        console.log("Something went wrong");
+        return null;
+    }
+}
