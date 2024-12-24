@@ -10,7 +10,7 @@ export async function createWorkspaceService(workspaceObject){
         workspaceObject.joincode = joincode;
         console.log(workspaceObject);
         const response = await createWorkspace(workspaceObject);
-        const addowner = await addmemberToWorkspace(response._id , workspaceObject.owner.id , 'admin');
+        const addowner = await addmemberToWorkspace(response.joincode , workspaceObject.owner.id , 'admin');
         const updatedworkspace = await addchannelToworkspace(response._id , 'General');
         return updatedworkspace;
     } catch (error) {
