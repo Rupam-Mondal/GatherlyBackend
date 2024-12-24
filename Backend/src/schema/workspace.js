@@ -23,7 +23,8 @@ const workSpaceSchema = new mongoose.Schema({
     ],
     joincode:{
         type:String,
-        required:[true , "Joincode is not required"]
+        required:[true , "Joincode is not required"],
+        unique:true
     },
     channels:[
         {

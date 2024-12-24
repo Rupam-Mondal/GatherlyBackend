@@ -34,7 +34,7 @@ export async function getAllworkspaceController(req , res){
 }
 export async function addMemberToworkspaceController(req , res){
     try {
-        const response = await addmemberToWorkspaceService(req.user.id, req.body.workspaceId, req.body.joincode , req.user.email);
+        const response = await addmemberToWorkspaceService(req.user.id, req.body.joincode , req.user.email);
         if(!response){
             throw null;
         }

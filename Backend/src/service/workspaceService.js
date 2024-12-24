@@ -1,5 +1,5 @@
 import {v4 as uuidv4} from 'uuid';
-import { addchannelToworkspace, addmemberToWorkspace, createWorkspace, findworkspaceByid, getAllworkspaceForUser } from '../repositories/workspaceRepository.js';
+import { addchannelToworkspace, addmemberToWorkspace, createWorkspace, findworkspaceByid, getAllworkspaceForUser, getWorkspaceByJoincode } from '../repositories/workspaceRepository.js';
 import { finduserByid } from '../repositories/userRepository.js';
 import { addEmailToQueue } from '../producers/mailQueueProducer.js';
 import { mail_id } from '../config/serverconfig.js';
@@ -28,14 +28,14 @@ export async function getAllworkspaceService(userId){
         return null;
     }
 }
-export async function addmemberToWorkspaceService(userId , workspaceId, joincode , email){
+export async function addmemberToWorkspaceService(userId , joincode , email){
     try {
-        const workspace = await findworkspaceByid(workspaceId);
+        const workspace = await getWorkspaceByJoincode(joincode);
         if (!workspace) {
             return null;
         }
         if(workspace.joincode == joincode){
-            const response = await addmemberToWorkspace(workspaceId, userId, 'member');
+            const response = await addmemberToWorkspace(joincode, userId, 'member');
             if(!response){
                 throw {
                     message:"Some issue"

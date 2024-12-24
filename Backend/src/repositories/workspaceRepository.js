@@ -42,9 +42,9 @@ export async function getWorkspaceByJoincode(joincode) {
     }
 }
 
-export async function addmemberToWorkspace(workspaceId , userId , role){
+export async function addmemberToWorkspace(joincode , userId , role){
     try {
-        const workspace = await findworkspaceByid(workspaceId);
+        const workspace = await getWorkspaceByJoincode(joincode);
         if (!workspace) {
             return null;
         }
