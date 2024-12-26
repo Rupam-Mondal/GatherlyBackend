@@ -2,7 +2,7 @@ import { getChannelByIdService } from "../service/channelService.js";
 
 export async function getChannelController(req , res){
     try {
-        const response = await getChannelByIdService(req.body.channelId , req.user.id);
+        const response = await getChannelByIdService(req.query.channelId , req.user.id);
         console.log(response)
         if(!response){
             throw null;

@@ -3,7 +3,7 @@ import { createMessageService, getMessageOfChannelService } from "../service/mes
 
 export async function createMessageController(req , res){
     try {
-        const response = await createMessageService({ body: req.body.body, channelId: req.body.channelId, senderId:req.body.senderId});
+        const response = await createMessageService({ body: req.body.body, channelId: req.body.channelId, senderId:req.user.id});
         if (!response) {
             throw null;
         }
