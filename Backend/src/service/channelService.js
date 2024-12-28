@@ -19,7 +19,7 @@ export async function  getChannelByIdService(channelId , userId){
     }
 }
 
-export async function UpdateChannelService({channelId , channelName}){
+export async function UpdateChannelService({ channelId , channelName}){
     try {
         const response = await updateChannelNameRepository({ channelId, channelName });
         return response;

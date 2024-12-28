@@ -21,8 +21,9 @@ export async function getChannelController(req , res){
 }
 export async function UpdateChannelNameController(req , res){
     try {
+        console.log(req.body);
         const ChannelObject = {
-            channelId:req.body.channelId, 
+            channelId: req.body.channelId, 
             channelName:req.body.channelName
         };
         const response = await UpdateChannelService(ChannelObject);
