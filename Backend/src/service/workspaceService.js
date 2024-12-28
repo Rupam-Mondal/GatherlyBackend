@@ -21,7 +21,6 @@ export async function createWorkspaceService(workspaceObject){
 export async function getAllworkspaceService(userId){
     try {
         const response = await getAllworkspaceForUser(userId);
-        console.log(response);
         return response;
     } catch (error) {
         console.log("Something went wrong");
@@ -85,7 +84,6 @@ export async function isUserPartOfWorkspaceService(userId , workspaceId){
 export async function getWorkspaceByIdService(workspaceId){
     try {
         const response = await findworkspaceByid(workspaceId);
-        console.log(response)
         return response;
     } catch (error) {
         console.log("Something went wrong");

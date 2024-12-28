@@ -57,7 +57,6 @@ export async function addmemberToWorkspace(joincode , userId , role){
                 throw null;
             }
         })
-        console.log(userId);
         workspace.members.push({ member:userId, role:role });
         await workspace.save();
         return workspace;
@@ -99,7 +98,6 @@ export async function getAllworkspaceForUser(userId){
         const response = await Workspace.find({
             "members.member": userId
         }).populate('channels');
-        console.log(response);
         return response;
     } catch (error) {
         console.log("Something went wronmg");

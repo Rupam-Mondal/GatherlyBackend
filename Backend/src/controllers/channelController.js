@@ -3,7 +3,6 @@ import { getChannelByIdService, UpdateChannelService } from "../service/channelS
 export async function getChannelController(req , res){
     try {
         const response = await getChannelByIdService(req.query.channelId , req.user.id);
-        console.log(response)
         if(!response){
             throw null;
         }
@@ -21,7 +20,6 @@ export async function getChannelController(req , res){
 }
 export async function UpdateChannelNameController(req , res){
     try {
-        console.log(req.body);
         const ChannelObject = {
             channelId: req.body.channelId, 
             channelName:req.body.channelName

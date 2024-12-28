@@ -22,7 +22,6 @@ export async function createChannel(ChannelObject){
 export async function updateChannelNameRepository({channelId , channelName}){
     try {
         const channel = await getChannelById(channelId);
-        console.log(channel);
         channel.name = channelName;
         await channel.save();
         return channel;

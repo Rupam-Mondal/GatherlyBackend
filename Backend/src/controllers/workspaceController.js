@@ -2,7 +2,6 @@ import { addChannelToworkspaceService, addmemberToWorkspaceService, createWorksp
 
 export async function createWorkspaceController(req , res){
     try {
-        console.log(req.user);
         const response = await createWorkspaceService({...req.body , owner:req.user});
         return res.json({
             success:true,
@@ -19,7 +18,6 @@ export async function createWorkspaceController(req , res){
 export async function getAllworkspaceController(req , res){
     try {
         const response = await getAllworkspaceService(req.user.id);
-        console.log(response);
         return res.json({
             success: true,
             message: "Workspaces fetched successfully",
