@@ -1,4 +1,4 @@
-import { getChannelByIdService } from "../service/channelService.js";
+import { getChannelByIdService, UpdateChannelService } from "../service/channelService.js";
 
 export async function getChannelController(req , res){
     try {
@@ -16,6 +16,25 @@ export async function getChannelController(req , res){
         return res.json({
             success:false,
             message:"Something went wrong in fetching"
+        })
+    }
+}
+export async function UpdateChannelNameController(req , res){
+    try {
+        const ChannelObject = {
+            channelId:req.body.channelId, 
+            channelName:req.body.channelName
+        };
+        const response = await UpdateChannelService(ChannelObject);
+        return res.json({
+            success:true,
+            message:"Channel Updated succesfully",
+            data:response
+        })
+    } catch (error) {
+        return res.json({
+            success:true,
+            message:"Channel update failed"
         })
     }
 }

@@ -19,3 +19,14 @@ export async function createChannel(ChannelObject){
         return null;
     }
 }
+export async function updateChannelNameRepository({channelId , channelName}){
+    try {
+        const channel = await getChannelById(channelId);
+        channel.name = channelName;
+        await channel.save();
+        return channel;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
