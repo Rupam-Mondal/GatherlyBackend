@@ -16,11 +16,13 @@ export async function createMessageService(MessageObject){
 }
 export async function getMessageOfChannelService(userId , workspaceId , channelId , offset , pageSize){
     try {
-        const isUserValid = await isUserPartOfWorkspaceService(userId, workspaceId);
-        if(isUserValid == false){
-            throw null;
-        }
+        // const isUserValid = await isUserPartOfWorkspaceService(userId, workspaceId);
+        // console.log(isUserValid)
+        // if(isUserValid == false){
+        //     throw null;
+        // }
         const response = await getMessagesOfChannel(channelId , offset , pageSize);
+        console.log(response)
         if(!response){
             throw null;
         }

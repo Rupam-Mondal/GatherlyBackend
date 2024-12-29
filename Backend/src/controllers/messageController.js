@@ -21,7 +21,8 @@ export async function createMessageController(req , res){
 }
 export async function getMessageOfChannelController(req , res){
     try {
-        const response = await getMessageOfChannelService(req.user.id , req.body.workspaceId , req.body.channelId, req.body.offset, req.body.pageSize);
+        console.log(req.query);
+        const response = await getMessageOfChannelService(req.user.id , req.query.workspaceId , req.query.channelId, req.query.offset, req.query.pageSize);
         if(!response){
             throw null;
         }
