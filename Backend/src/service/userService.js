@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import { createUser, getUserByUsername } from "../repositories/userrepository.js";
+import { createUser, getUserByUsername } from "../repositories/userRepository.js";
 import { createToken } from '../utils/jwt.js';
 
 export async function signupService(userObject){
