@@ -1,4 +1,4 @@
-import { getUserByemail } from "../repositories/userrepository.js";
+import { getUserByemail } from "../repositories/userRepository.js";
 import { tokenVerify } from "../utils/jwt.js";
 
 export async function isAuthenticate(req , res , next){
