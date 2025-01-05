@@ -1,0 +1,492 @@
+{
+	"info": {
+		"_postman_id": "32458e9d-748c-49c1-914e-1f35e3f4ce3e",
+		"name": "Gatherly Fullstack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38734268"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1cGFtNTY0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicnVwYW02NzgiLCJpZCI6IjY3NWJhMzE0MDIxMDQ0NWM2MzI1MzRmYSIsImlhdCI6MTczNDQwMjMwOCwiZXhwIjoxNzM0NDg4NzA4fQ.NoWE0zPMas2qDhz3-DP011ITeG3AOtM-i13MYg2C7OE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/ping",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"rupam5646@gmail.com\",\r\n    \"username\":\"rupam6786\",\r\n    \"password\":\"11111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"abcdef@gmail.com\",\r\n    \"username\":\"abcdef\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createworkspace",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY2RlZkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFiY2RlZiIsImlkIjoiNjc2OGUyNTJmNjFiZGY5MTNiZTU0ODQ1IiwiaWF0IjoxNzM1MDQ0NTA0LCJleHAiOjE3MzUxMzA5MDR9.jKfbBwng0raS8SKYMOoqPfxZiy_O68AIMr9AWnEp9FQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"React community\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/workspace/createworkspace",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"workspace",
+						"createworkspace"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserAllworkspace",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1cGFtNTY0NkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InJ1cGFtNjc4NiIsImlkIjoiNjc2MGYzYTJiN2FmYjA1MmIwYzhlODg2IiwiaWF0IjoxNzM0NzgzMjQyLCJleHAiOjE3MzQ4Njk2NDJ9.Hjs9VFIpJJBvh0ymACxZk2JUpM3DjrKcGzGcqUXepB8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/workspace/allworkspace",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"workspace",
+						"allworkspace"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addmembertoworkspace",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY2RlQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWJjZGUiLCJpZCI6IjY3NjI5OTAyMDc1MTBjZDc1M2E0OWZlYiIsImlhdCI6MTczNTA0MjUxNSwiZXhwIjoxNzM1MTI4OTE1fQ.69qarSloVRYbi9xExKGnFKkzPRKRz0qg0UwbQs2re6I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"joincode\":\"b533efg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/workspace/addmember",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"workspace",
+						"addmember"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addchannel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY2RlQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWJjZGUiLCJpZCI6IjY3NjI5OTAyMDc1MTBjZDc1M2E0OWZlYiIsImlhdCI6MTczNDk0ODU2MCwiZXhwIjoxNzM1MDM0OTYwfQ.TE8EfyRvDTXa6CsNDliYy5RuysV8Ge0IMlzXOn6JWs0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workspaceId\":\"6768e0acf61bdf913be547f5\",\r\n    \"channelName\":\"play\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/workspace/addchannel",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"workspace",
+						"addchannel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "channel Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9wMTE1NUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im9wMTExMjM1NSIsImlkIjoiNjc1YzUyZDg5ZDE3MWNmZTQ2NDRmYmNhIiwiaWF0IjoxNzM0MTAzNzc2LCJleHAiOjE3MzQxOTAxNzZ9.P3Wd1_rzWfkSiW3CruF1JH7cJj5his36WueDbtDCopE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"channelId\":\"675cfeb6059bd9fdcd311c3b\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/channel/channelDetails",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"channel",
+						"channelDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1cGFtbW9uZGFsNTY0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicnVwYW0xMjM0NTYiLCJpZCI6IjY3NWU1NDFjODc4MGJlNzA4NjUwNzA1NiIsImlhdCI6MTczNDI0MzI3NiwiZXhwIjoxNzM0MzI5Njc2fQ.E9PxGqmySz91h_z8-s0Fyoqk7NMFogTeoLwhwXxYPkw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workspaceId\":\"675c523d9d171cfe4644fb82\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/workspace/checkUser",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"workspace",
+						"checkUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMessagesOf Channel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1cGFtbW9uZGFsNTY0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicnVwYW0xMjM0NTYiLCJpZCI6IjY3NWU1NDFjODc4MGJlNzA4NjUwNzA1NiIsImlhdCI6MTczNDMxOTM4OSwiZXhwIjoxNzM0NDA1Nzg5fQ.tahvUlPf7jkiLu6B08oek-MQsn1JRkoaeqrmTajKJyI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workspaceId\":\"675e4f9643c362f11dd7dc02\",\r\n    \"channelId\":\"675e4f9743c362f11dd7dc0a\",\r\n    \"offset\":\"0\",\r\n    \"pageSize\":\"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/message/getMessages",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"message",
+						"getMessages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send Message In channel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1cGFtbW9uZGFsNTY0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicnVwYW0xMjM0NTYiLCJpZCI6IjY3NWU1NDFjODc4MGJlNzA4NjUwNzA1NiIsImlhdCI6MTczNDMyMDg2MywiZXhwIjoxNzM0NDA3MjYzfQ.YoYuXkOOiMufLm9uOE85s3X9EwfqUKZeYExsDgkCzAA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"body\":\"Hi welcome to our community\",\r\n    \"channelId\":\"675e4f9743c362f11dd7dc0a\",\r\n    \"senderId\":\"675e541c8780be7086507056\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/message/sendMessage",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"message",
+						"sendMessage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getChannelById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1cGFtNTY0NkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InJ1cGFtNjc4NiIsImlkIjoiNjc2MGYzYTJiN2FmYjA1MmIwYzhlODg2IiwiaWF0IjoxNzM0NDA3MDgzLCJleHAiOjE3MzQ0OTM0ODN9.jfFij7WZfBs-06hK5Eo7Z1C8Cdusy5DTXdy3G-O64g8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"channelId\":\"675e4f9743c362f11dd7dc0a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/channel/channelDetails",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"channel",
+						"channelDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Worekspace by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY2RlQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWJjZGUiLCJpZCI6IjY3NjI5OTAyMDc1MTBjZDc1M2E0OWZlYiIsImlhdCI6MTczNDkzMzcyNywiZXhwIjoxNzM1MDIwMTI3fQ.WM1zaAfByeKSwNdg7Vt4frrflgn2-Q9DwWG6vxBTChM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workspaceId\":\"675e4f9643c362f11dd7dc02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/workspace/Getworkspace",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"workspace",
+						"Getworkspace"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Channel name",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY2RlQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWJjZGUiLCJpZCI6IjY3NjI5OTAyMDc1MTBjZDc1M2E0OWZlYiIsImlhdCI6MTczNDkzMzcyNywiZXhwIjoxNzM1MDIwMTI3fQ.WM1zaAfByeKSwNdg7Vt4frrflgn2-Q9DwWG6vxBTChM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workspaceId\":\"675e4f9643c362f11dd7dc02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/workspace/Getworkspace",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"workspace",
+						"Getworkspace"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
